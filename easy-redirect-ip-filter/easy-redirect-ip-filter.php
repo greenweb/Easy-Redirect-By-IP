@@ -4,7 +4,7 @@ Plugin Name: Easy Redirect IP Address Filter
 Plugin URI: http://www.beforesite.com/plugins/easy-redirect-by-ip-address
 Description: Easily redirect visitors to another address if their IP address does not match yours. Change the options under Easy Redirect IP Address Filter: <a href="admin.php?page=eri_options_pg">Easy Redirect IP Address Filter</a>
 Author: Andrew @ Geeenville Web Design
-Version: 1.0
+Version: 0.1
 Author URI: http://www.beforesite.com
 License: GPLv2 or later
 */
@@ -17,7 +17,7 @@ if (!function_exists ('add_action')){
  * Register Globals
  * */
 $eri_plugin_loc = plugin_dir_url( __FILE__ );
-$eri_plugname = "Easy Redirect IP";
+$eri_plugname = "Easy Redirect IP Address Filter";
 $eri_plug_shortname = "easy_redirect_ip";
 $eri_the_web_url = home_url();
 $eri_the_blog_name = get_bloginfo('name');
@@ -32,20 +32,10 @@ define( 'ERIDS',            DIRECTORY_SEPARATOR );
 define( 'ERI_URL',          plugin_dir_url(__FILE__) );
 define( 'ERI_PATH',         plugin_dir_path(__FILE__) );
 define( 'ERI_BASENAME',     plugin_basename( __FILE__ ) );
-define( 'ERI_WEB_URL',      $eri_the_web_url );
 define( 'ERI_NAME',         $eri_plugname );
-define( 'ERI_S_NAME',       $eri_plug_shortname );
-define( 'ERI_DEFAULT_EMAIL',$eri_the_default_email );
-define( 'ERI_VERSION',      '1.0' );
+define( 'ERI_VERSION',      '0.1' );
 define( 'ERI_PREFIX' ,      'eri_');
-/**
- * WP_BLOG_NAME & WP_URL
- * used by easy-sign-up/lib/esu-admin-class.php
- **/
-if ( ! defined('WP_BLOG_NAME') )
-  define( 'WP_BLOG_NAME',   $eri_the_blog_name );
-if ( ! defined('WP_URL') )
-  define( 'WP_URL',         $eri_the_web_url );
+
 
 /**
  * Load included files
@@ -81,6 +71,6 @@ function eri_deactivate()
 }
 // load translations - if any
 function eri_init() {
-  #load_plugin_textdomain( 'eri_lang', false, dirname( plugin_basename( __FILE__ ) )  . '/languages/' );  
+  load_plugin_textdomain( 'eri_lang', false, dirname( plugin_basename( __FILE__ ) )  . '/languages/' );  
 }
 add_action('plugins_loaded', 'eri_init', 99999);
