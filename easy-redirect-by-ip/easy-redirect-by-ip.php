@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Easy Redirect IP Address Filter
+Plugin Name: Easy Redirect by IP
 Plugin URI: http://www.beforesite.com/plugins/easy-redirect-by-ip-address
 Description: Easily redirect visitors to another address if their IP address does not match yours. Change the options under Easy Redirect IP Address Filter: <a href="admin.php?page=eri_options_pg">Easy Redirect IP Address Filter</a>
 Author: Andrew @ Geeenville Web Design
@@ -17,7 +17,7 @@ if (!function_exists ('add_action')){
  * Register Globals
  * */
 $eri_plugin_loc = plugin_dir_url( __FILE__ );
-$eri_plugname = "Easy Redirect IP Address Filter";
+$eri_plugname = "Easy Redirect by IP";
 $eri_plug_shortname = "easy_redirect_ip";
 $eri_the_web_url = home_url();
 $eri_the_blog_name = get_bloginfo('name');
@@ -36,7 +36,6 @@ define( 'ERI_NAME',         $eri_plugname );
 define( 'ERI_VERSION',      '0.1' );
 define( 'ERI_PREFIX' ,      'eri_');
 
-
 /**
  * Load included files
  * Class files
@@ -45,7 +44,8 @@ include 'lib'.ERIDS.'eri-admin-class.php';
 /**
  * Create a new instances for our classes
  **/
-$eri_admin    = new EriAdmin();
+$eri_redirect = new EriRedirect();
+$eri_options  = new eriOptions();
 
 /* activation and deactivation */
 /**
@@ -55,19 +55,43 @@ register_activation_hook( __FILE__, 'eri_activate' );
 
 function eri_activate()
 {
-  
+  $eri_set_ipaddress        = $_SERVER['REMOTE_ADDR'];
+  $eri_set_ipaddress_array  = array($eri_set_ipaddress);
+  $eri_safe_ips             = add_option( 'eri_safe_ips', $eri_set_ipaddress_array, '', 'yes' );
+  // add version to db
+  $eri_version              = update_option( 'eri_version', ERI_VERSION );
+  $eri_set_transient        = __("Your IP address <b>$eri_set_ipaddress</b> has been added to the safe list.", 'eri_lang');
+  set_transient( 'eri_update_message', $eri_set_transient, 1 * MINUTE_IN_SECONDS);
 }
 
 /**
- * Removes the esu options from the database 
+* Set the admin message - last for 1 minute
+*/
+add_action('admin_notices', 'eri_get_transient_message');
+function eri_get_transient_message()
+{
+  if ( ! current_user_can('activate_plugins') ) return;
+  $eri_update_message = get_transient( 'eri_update_message' );
+  if (false  === $eri_update_message) return;
+
+  $left_link_text = __("Please have a look at the plugin's options page", 'eri_lang');
+  global $blog_id;
+  $eri_options_page_url = get_admin_url( $blog_id, '/options-general.php?page=eri-options-page');
+  $left_link = '<a href="'.$eri_options_page_url.'">'.$left_link_text.'</a>';
+  echo ("<div id='eri-message' class='updated'><p>$eri_update_message <span style='float:right'>$left_link</span></p></div>");
+}
+
+
+/**
+ * Removes the eri options from the database 
  * @since 3.0
  **/
 register_deactivation_hook(__FILE__, 'eri_deactivate');
 function eri_deactivate()
 {
-  #if (get_option('easy_sign_up_delete_settings') != true) return; // don't delete
+  #if (get_option('eri_delete_settings') != true) return; // don't delete
   // remove the plugin's default options from the database
-  #delete_option( $eri_options );
+  delete_option( 'eri_safe_ips' );  
 }
 // load translations - if any
 function eri_init() {
