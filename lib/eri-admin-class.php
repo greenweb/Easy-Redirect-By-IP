@@ -4,7 +4,6 @@ if (!class_exists("EriRedirect")) {
   {
     function __construct()
     {
-      add_action( 'init',array($this,'eri_redirect') );
       add_action( 'wp_loaded',array($this,'eri_redirect') );
     }
 
@@ -26,7 +25,7 @@ if (!class_exists("EriRedirect")) {
 
       if( !in_array($_SERVER['REMOTE_ADDR'], $eri_safe_ips)  ){
         if ( $eri_redirect_to_url != FALSE ) {
-          wp_redirect( $eri_redirect_to_url, 302 ); echo " ";
+          wp_redirect( $eri_redirect_to_url, 302 );
         }else{
           wp_die( __( '<h1 style="text-align:center">You are not authorized to view this website</h1>','eri_lang' ), __( 'Access denied','eri_lang' ) );
         }
