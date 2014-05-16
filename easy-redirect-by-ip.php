@@ -2,7 +2,7 @@
 /*
 Plugin Name: Easy Redirect by IP
 Plugin URI: http://www.beforesite.com/plugins/easy-redirect-by-ip-address
-Description: Easily redirect visitors to another address if their IP address does not match yours. Change the options under Easy Redirect IP Address Filter: <a href="admin.php?page=eri_options_pg">Easy Redirect IP Address Filter</a>
+Description: Easily redirect visitors to another address if their IP address does not match yours. Change the options under Easy Redirect IP Address Filter: <a href="options-general.php?page=eri-options-page">Easy Redirect IP Address Filter</a>
 Author: Andrew @ Geeenville Web Design
 Version: 0.1
 Author URI: http://www.beforesite.com
