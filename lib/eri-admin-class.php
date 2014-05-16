@@ -5,6 +5,7 @@ if (!class_exists("EriRedirect")) {
     function __construct()
     {
       add_action( 'init',array($this,'eri_redirect') );
+      add_action( 'wp_loaded',array($this,'eri_redirect') );
     }
 
     function eri_redirect()
