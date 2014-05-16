@@ -8,7 +8,7 @@ Requires at least: 3.5
 Tested up to: 3.5.9
 Stable tag: 0.1
 
-Plugin redirects everyone except the admin's IP and addresses approved via passkey to a URL specified in the settings page.
+Plugin redirects everyone except the admin's IP and other IP addresses approved via passkey appended to a URL specified in the settings page.
 
 == Description ==
 On activation of this plugin your IP address will be added to a safe list. 
@@ -18,20 +18,34 @@ Very useful if you are logging into your website from a different location or if
 At the options page you can set up the redirect URL. Leaving this blank will display a access denied message to anybody trying to visit the website.
 
 = Main Functions =
+
  * 301 Redirection to the web address that you specify.
-[More Info and Support](http://www.beforesite.com/)
-= Waring =
- * Do not redirect the user to a page with in the __same WordPress website__ or their will be a redirect loop and the sky will fall! _(Maybe not the last one)_. 
+[More Info and Support](http://www.beforesite.com/issue-tracker/#/Easy-Redirect-By-IP)
+
+= Warning =
+
+ * Do not redirect the user to a page with in the __same WordPress website__ or there will be a redirect loop.
+
 == Installation == 
+
  * Upload the plugin's folder to the /wp-content/plugins/ directory
  * Activate the plugin through the 'Plugins' menu in WordPress
  * Change the options under tools
+
 == Frequently Asked Questions ==
+
   [FAQ](http://www.beforesite.com/)
+
 == Upgrade Notice ==
+
   N/A
+
 == Screenshots ==
+
 1. Options Page
+
 == Changelog ==
+
 = 0.1 =
+
  * Beta Launch
