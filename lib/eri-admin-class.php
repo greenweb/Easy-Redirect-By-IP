@@ -118,8 +118,11 @@ class eriOptions {
 
   public function eri_sanitize( $input ) {
     // PassKey
-    extract($input);
-    if ( is_numeric( $pass_key ) ) {
+    if(isset($input)){
+      extract($input);
+    }
+    
+    if ( isset($pass_key) && is_numeric( $pass_key ) ) {
       if ( get_option('eri_pass_key') === FALSE ) {
         add_option('eri_pass_key', $pass_key);
       }else {
@@ -127,7 +130,7 @@ class eriOptions {
       }
     }
     // Redirection URL
-    if (filter_var($redirect_to_url, FILTER_VALIDATE_URL) !== FALSE) {
+    if ( isset($redirect_to_url) &&  filter_var($redirect_to_url, FILTER_VALIDATE_URL) !== FALSE) {
       if ( get_option('eri_redirect_to_url') === FALSE ) {
         add_option('eri_redirect_to_url', $redirect_to_url);
       }else {
@@ -135,6 +138,13 @@ class eriOptions {
       }
     }
     // ip address
+    if (!isset($eri_safe_ips)) {
+      $eri_set_ipaddress        = $_SERVER['REMOTE_ADDR'];
+      $eri_set_ipaddress_array  = array($eri_set_ipaddress);
+      $eri_add_safe_ips         = add_option( 'eri_safe_ips', $eri_set_ipaddress_array, '', 'yes' );
+      $eri_safe_ips             = get_option( 'eri_safe_ips' );
+    }
+
     $eri_safe_ips_array = explode(',', $eri_safe_ips);
     $eri_save_ips_array = array();
     foreach ($eri_safe_ips_array as $key => $ip_a) {
