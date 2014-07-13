@@ -8,8 +8,7 @@ Requires at least: 3.5
 Tested up to: 3.5.9
 Stable tag:1
 
-Easily redirect visitors to another web address if their IP address is not on a safe list. Give users the passkey web address they will be added to the "safe IP list" allowing them to view the website (see plugin options)
-
+Redirect visitors to another web address if their IP address is not on a safe list. Give users access via a passkey url. 
 == Description ==
 
 On activation of this plugin your IP address will be added to a safe list. 
