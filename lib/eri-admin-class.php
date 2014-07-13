@@ -177,8 +177,12 @@ class eriOptions {
   }
 
   public function eri_pass_key_input() {
+    $eri_pass_key  = get_option('eri_pass_key');
+    if($eri_pass_key == ""){
+      $eri_pass_key = rand(100, 99999);
+    }
     ?>
-    <input type="text" id="eri_pass_key" name="eri_option[pass_key]" value="<?php echo get_option('eri_pass_key');?>" >
+    <input type="text" id="eri_pass_key" name="eri_option[pass_key]" value="<?php echo $eri_pass_key;?>" >
     <?php
         echo '<p class="description">';
           _e( 'This must a number with no gaps or special characters.', 'eri_lang' );
