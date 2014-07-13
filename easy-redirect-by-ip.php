@@ -88,9 +88,11 @@ function eri_get_transient_message()
 register_deactivation_hook(__FILE__, 'eri_deactivate');
 function eri_deactivate()
 {
-  #if (get_option('eri_delete_settings') != true) return; // don't delete
   // remove the plugin's default options from the database
   delete_option( 'eri_safe_ips' );  
+  delete_option( 'eri_pass_key' );  
+  delete_option( 'eri_option' );  
+  delete_option( 'eri_redirect_to_url' );  
 }
 // load translations - if any
 function eri_init() {
