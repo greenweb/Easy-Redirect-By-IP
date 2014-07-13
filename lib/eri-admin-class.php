@@ -155,14 +155,7 @@ class eriOptions {
       }
     }
     // ip address
-    if (!isset($eri_safe_ips)) {
-      $eri_set_ipaddress        = $_SERVER['REMOTE_ADDR'];
-      $eri_set_ipaddress_array  = array($eri_set_ipaddress);
-      $eri_add_safe_ips         = add_option( 'eri_safe_ips', $eri_set_ipaddress_array, '', 'yes' );
-      $eri_safe_ips             = get_option( 'eri_safe_ips' );
-    }
-
-    $eri_safe_ips_array = explode(',', $eri_safe_ips);
+    $eri_safe_ips_array = explode(',', $input['eri_safe_ips']);
     $eri_save_ips_array = array();
     foreach ($eri_safe_ips_array as $key => $ip_a) {
       if (filter_var($ip_a, FILTER_VALIDATE_IP)) {
