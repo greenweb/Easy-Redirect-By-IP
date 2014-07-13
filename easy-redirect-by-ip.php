@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Easy Redirect by IP
+Plugin Name: Easy Bouncer - Redirect by IP
 Plugin URI: http://www.beforesite.com/plugins/easy-redirect-by-ip-address
-Description: Easily redirect visitors to another address if their IP address does not match yours. Change the options under Easy Redirect IP Address Filter: <a href="options-general.php?page=eri-options-page">Easy Redirect IP Address Filter</a>
+Description: Easily redirect visitors to another address if their IP address is not on a safe list. Change the options under <em>Dashboard > Setting >> <a href="options-general.php?page=eri-options-page">Redirect IP</a></em>
 Author: Andrew @ Geeenville Web Design
 Version: 0.1
 Author URI: http://www.beforesite.com
@@ -17,7 +17,7 @@ if (!function_exists ('add_action')){
  * Register Globals
  * */
 $eri_plugin_loc = plugin_dir_url( __FILE__ );
-$eri_plugname = "Easy Redirect by IP";
+$eri_plugname = "Easy Filter and Redirect by IP";
 $eri_plug_shortname = "easy_redirect_ip";
 $eri_the_web_url = home_url();
 $eri_the_blog_name = get_bloginfo('name');
@@ -57,9 +57,8 @@ function eri_activate()
 {
   $eri_set_ipaddress        = $_SERVER['REMOTE_ADDR'];
   $eri_set_ipaddress_array  = array($eri_set_ipaddress);
-  $eri_safe_ips             = add_option( 'eri_safe_ips', $eri_set_ipaddress_array, '', 'yes' );
-  // add version to db
-  $eri_version              = update_option( 'eri_version', ERI_VERSION );
+  $eri_safe_ips             = add_option( 'eri_safe_ips', $eri_set_ipaddress_array ); 
+  $eri_pass_key             = add_option( 'eri_pass_key', rand(100, 99999) );
   $eri_set_transient        = __("Your IP address <b>$eri_set_ipaddress</b> has been added to the safe list.", 'eri_lang');
   set_transient( 'eri_update_message', $eri_set_transient, 1 * MINUTE_IN_SECONDS);
 }
