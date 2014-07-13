@@ -196,7 +196,9 @@ class eriOptions {
 
   public function eri_redirect_to_url_input() {
     ?>
-    <input type="text" id="eri_redirect_to_url" name="eri_option[redirect_to_url]" value="<?php echo get_option('eri_redirect_to_url');?>" class="regular-text code">
+    <input type="text" id="eri_redirect_to_url" name="eri_option[redirect_to_url]" value="<?php 
+                                                                                              echo esc_url_raw( get_option('eri_redirect_to_url'), array( 'http', 'https') );
+                                                                                          ?>" class="regular-text code">
     <?php
       echo '<p class="description">';
       _e( 'This must be a valid url including the <code>http://</code> or <code>https://</code>', 'eri_lang' );
@@ -208,7 +210,7 @@ class eriOptions {
     foreach ($eri_safe_ips as $key => $ip) {
       echo($ip.',');
     }
-    echo("'>");// die();
+    echo("'>");
   }
 }
 // eof
