@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: beforesite, redirect, redirection by IP address, site redirection, website redirection, private website
 Requires at least: 3.5
 Tested up to: 3.5.9
-Stable tag: 1.0
+Stable tag: 1
 
 Plugin redirects everyone except the admin user's IP and other addresses IP pre approved or added by the passkey URL (see plugin options)
 
