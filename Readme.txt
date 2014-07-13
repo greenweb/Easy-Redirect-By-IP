@@ -8,7 +8,7 @@ Requires at least: 3.5
 Tested up to: 3.5.9
 Stable tag:1
 
-Plugin redirects everyone except the admin user's IP and other addresses IP pre approved or added by the passkey URL (see plugin options)
+Easily redirect visitors to another web address if their IP address is not on a safe list. Give users the passkey web address they will be added to the "safe IP list" allowing them to view the website (see plugin options)
 
 == Description ==
 
@@ -54,7 +54,9 @@ Documentation for this jQuery plugin lives here: http://xoxco.com/projects/code/
  * A: No, this would create an infinite loop
 
 * Q: My IP address has changed now I can't access my site
- * A: If you bookmarked your
+ * A: If you bookmarked your passkey url you can use that - other wise you'll need to FTP up to your server and delete or rename this plugin's folder:
+
+**/wp-content/plugins/easy-redirect-by-ip/**
 
 == Upgrade Notice ==
 
