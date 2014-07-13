@@ -57,17 +57,12 @@ class eriOptions {
     // This page will be under "Settings"
     $eri_page_name = __( 'Redirect by IP','eri_lang' );
     add_options_page( $eri_page_name, $eri_page_name , 'manage_options', 'eri-options-page', array( $this, 'create_eri_admin_page' ) );
+  }
 
-  }
-  public function eri_admin_custom_css()
-  {
-    
-  }
   public function create_eri_admin_page() {
     ?>
     <div class="wrap">
-        <?php screen_icon(); ?>
-        <?php $eri_page_name = __( 'Easy Redirect by IP Settings','eri_lang' ); ?>
+        <?php $eri_page_name = __( 'Easy Bouncer Settings','eri_lang' ); ?>
         <h2><?php echo $eri_page_name ; ?></h2>
         <form method="post" action="options.php">
             <?php
@@ -121,7 +116,7 @@ class eriOptions {
     if(isset($input)){
       extract($input);
     }
-    
+
     if ( isset($pass_key) && is_numeric( $pass_key ) ) {
       if ( get_option('eri_pass_key') === FALSE ) {
         add_option('eri_pass_key', $pass_key);
