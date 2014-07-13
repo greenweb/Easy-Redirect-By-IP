@@ -125,7 +125,29 @@ class eriOptions {
       }
     }
     // Redirection URL
+    $redirect_to_url = (isset($redirect_to_url)) ? esc_url_raw( $redirect_to_url, array( 'http', 'https') ) : null ;
+    if ( $redirect_to_url !== null ) {
+      $redirect_to_url_host = parse_url($redirect_to_url, PHP_URL_HOST);
+      $this_urls_host = parse_url(ERI_URL, PHP_URL_HOST);
+
+      if ($redirect_to_url_host == $this_urls_host ) {
+        $url_error  = '<h1 style="text-align:center; color:red">';
+        $url_error .= __( "Opps infinite loop warning!",'eri_lang' );
+        $url_error .= "</h1>";
+        $url_error .= "<p>";
+        $url_error .= __( "Don't set the redirect to a page on this website or you'll end up with a infinite loop!",'eri_lang' );
+        $url_error .= "</p>";
+        $url_error .= "<p>";
+        $url_error .= __( "Use the link or your browser's back button and change the redirection URL",'eri_lang' );
+        $url_error .= "</p>";
+
+
+        wp_die( $url_error , __( 'Error: infinite loop!','eri_lang' ), array('back_link'=>true) );
+      }
+    }
+
     if ( isset($redirect_to_url) &&  filter_var($redirect_to_url, FILTER_VALIDATE_URL) !== FALSE) {
+      $redirect_to_url = esc_url_raw($redirect_to_url, array( 'http', 'https') ); // sanitze using wp function esc_url_raw( $url, $protocols );
       if ( get_option('eri_redirect_to_url') === FALSE ) {
         add_option('eri_redirect_to_url', $redirect_to_url);
       }else {
