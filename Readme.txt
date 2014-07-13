@@ -3,7 +3,7 @@ Contributors: Greenweb
 Donate link: http://www.beforesite.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: beforesite
+Tags: beforesite, redirect, redirection by IP address, site redirection, website redirection, private website
 Requires at least: 3.5
 Tested up to: 3.5.9
 Stable tag: 1.0
