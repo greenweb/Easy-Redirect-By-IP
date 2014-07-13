@@ -1,5 +1,5 @@
-Easy-Redirect-By-IP
-===================
+Easy Bouncer - Redirect by IP
+=============================
 
 Plugin redirects everyone except the admin's IP and addresses approved via passkey to a URL specified in the settings page.
 
@@ -13,7 +13,7 @@ At the options page you can set up the redirect URL. Leaving this blank will dis
 
 ### Main Functions
  * 301 Redirection to the web address that you specify.
-[More Info and Support](http://www.beforesite.com/issue-tracker/#/Easy-Redirect-By-IP)
+[More Info and Support](http://wordpress.org/support/plugin/easy-redirect-by-ip)
 
 #### Warning
 Do not redirect the user to a page with in the __same WordPress website__ or there will be a redirect loop and the sky will fall! _( Well maybe not the last bit)_. 
