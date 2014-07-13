@@ -4,7 +4,7 @@ Plugin Name: Easy Bouncer - Redirect by IP
 Plugin URI: http://www.beforesite.com/plugins/easy-redirect-by-ip-address
 Description: Easily redirect visitors to another address if their IP address is not on a safe list. Change the options under <em>Dashboard > Setting >> <a href="options-general.php?page=eri-options-page">Redirect IP</a></em>
 Author: Andrew @ Geeenville Web Design
-Version: 1
+Version:1
 Author URI: http://www.beforesite.com
 License: GPLv2 or later
 */
