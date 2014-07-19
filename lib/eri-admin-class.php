@@ -64,6 +64,7 @@ class eriOptions {
     <div class="wrap">
         <?php $eri_page_name = __( 'Easy Bouncer Settings','eri_lang' ); ?>
         <h2><?php echo $eri_page_name ; ?></h2>
+        <?php $this->eri_print_self_promotion(); ?>
         <form method="post" action="options.php">
             <?php
               // This print out all hidden setting fields
@@ -212,5 +213,26 @@ class eriOptions {
     }
     echo("'>");
   }
+
+  public function eri_print_self_promotion()
+  { ?>
+    <!-- UpGrade -->
+    <div id="eri_like_plug">
+      <h3><?php _e('This plugin has cost me many hours of work, if you use it, please:','eri_lang'); ?></h3>
+        <ol>
+          <li>
+            <a href="http://wordpress.org/support/view/plugin-reviews/easy-redirect-by-ip"><?php echo __('Rate the plugin <span title="Five Stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> on WordPress.org','eri_lang'); ?></a>
+          </li>
+          <li>
+            <?php _e("Need WordPress help?",'eri_lang'); ?> 
+              <a href="http://www.greenvilleweb.us/services/?ref=ehb_plugin_services" 
+                title="<?php _e("Need WordPress help?",'eri_lang'); ?>"><span>&#9733;</span><?php _e("Hire me for custom Themes and Plugins",'eri_lang'); ?><span>&#9733;</span></a>
+          </li>
+        </ol>
+    </div>  
+    <!-- END Upgrade -->
+  <?php
+  }
+
 }
 // eof
