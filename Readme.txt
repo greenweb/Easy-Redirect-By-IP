@@ -1,6 +1,6 @@
 ===Easy Bouncer - Redirect by IP===
 Contributors: Greenweb
-Donate link: http://www.beforesite.com/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7YA9D9G4TE9BA
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: beforesite, redirect, redirection by IP address, site redirection, website redirection, private website
