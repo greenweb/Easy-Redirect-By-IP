@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: beforesite, redirect, redirection by IP address, site redirection, website redirection, private website
 Requires at least: 3.5
 Tested up to: 3.5.9
-Stable tag:1
+Stable tag: 1.0.1
 
 Redirect visitors to another web address if their IP address is not on a safe list. Give users access via a passkey url. 
 == Description ==
@@ -59,13 +59,17 @@ Documentation for this jQuery plugin lives here: http://xoxco.com/projects/code/
 
 == Upgrade Notice ==
 
-  N/A
+  Added a review link to the settings screen
 
 == Screenshots ==
 
 1. Options Page
 
 == Changelog ==
+
+= 1.0.1 =
+
+Added a review link
 
 = 1.0 =
 
